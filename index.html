@@ -95,8 +95,7 @@
 
     <div style="display: flex; align-items: center;">
         <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo">
-        <img src="res/sun-icon.png" alt="Güneş İkonu" class="social-logo" id="light-theme-toggle" title="Aydınlık Tema">
-        <img src="res/moon-icon.png" alt="Ay İkonu" class="social-logo" id="dark-theme-toggle" title="Karanlık Tema">
+        <img src="res/sun-icon.png" alt="Tema Değiştirme İkonu" class="social-logo" id="theme-toggle" title="Tema Değiştir">
     </div>
     
     <div class="container">
@@ -122,20 +121,27 @@
         const currentTheme = localStorage.getItem('theme') || 'light';
         document.body.classList.add(currentTheme + '-theme');
 
-        const lightThemeToggle = document.getElementById('light-theme-toggle');
-        const darkThemeToggle = document.getElementById('dark-theme-toggle');
+        const themeToggle = document.getElementById('theme-toggle');
 
-        lightThemeToggle.addEventListener('click', function () {
-            document.body.classList.remove('dark-theme');
-            document.body.classList.add('light-theme');
-            localStorage.setItem('theme', 'light');
+        // Tema ikonunu güncelleme fonksiyonu
+        function updateThemeIcon() {
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.src = 'res/sun-icon.png'; // Güneş ikonu (aydınlık tema)
+            } else {
+                themeToggle.src = 'res/moon-icon.png'; // Ay ikonu (karanlık tema)
+            }
+        }
+
+        // Tema değiştirme olayları
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+            updateThemeIcon();
         });
 
-        darkThemeToggle.addEventListener('click', function () {
-            document.body.classList.remove('light-theme');
-            document.body.classList.add('dark-theme');
-            localStorage.setItem('theme', 'dark');
-        });
+        // Sayfa yüklendiğinde ikonun güncellenmesi
+        updateThemeIcon();
     </script>
 
 </body>
