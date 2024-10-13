@@ -46,7 +46,9 @@
         }
 
         .container {
-            text-align: center;
+            display: flex; /* Flexbox kullan */
+            flex-direction: column; /* Dikey yerleşim */
+            align-items: center; /* Ortada hizala */
             background-color: #fff;
             padding: 40px;
             border-radius: 10px;
@@ -54,6 +56,7 @@
             max-width: 500px;
             width: 100%;
             transition: background-color 0.5s;
+            margin: 0 auto; /* Sayfanın ortasında yer alması için */
         }
 
         body.dark-theme .container {
@@ -116,7 +119,7 @@
 </head>
 <body>
 
-    <h1>DENEME 123.NL 
+    <h1>NikoOS 
         <a href="https://www.youtube.com/@scropool2" target="_blank">
             <img src="res/youtube-logo.png" alt="YouTube" class="logo">
         </a>
@@ -126,7 +129,7 @@
     </h1>
 
     <div class="container">
-        <p>Click the buttons below to download files:</p>
+        <p>Aşağıdan bir sürüm seçerek indirmeye başlayın:</p>
         
         <!-- Sabit URL üzerinden indirme butonları -->
         <a href="link-eklenecek" class="download-btn" download>NikoOS 11 24H2 (LTSC 2024)</a>
