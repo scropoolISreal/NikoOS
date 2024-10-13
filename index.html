@@ -70,7 +70,8 @@
         }
 
         .theme-toggle-btn {
-            display: inline-block;
+            display: flex;
+            align-items: center;
             background-color: #007BFF;
             color: white;
             padding: 10px 20px;
@@ -84,6 +85,12 @@
 
         .theme-toggle-btn:hover {
             background-color: #0056b3;
+        }
+
+        .icon {
+            width: 20px;
+            height: auto;
+            margin-right: 5px;
         }
 
         p {
@@ -121,7 +128,10 @@
         <a href="link-eklenecek" class="download-btn" download>NikoOS 10 1809 (LTSC 2019)</a>
         <a href="link-eklenecek" class="download-btn" download>NikoOS 10 22H2</a>
 
-        <button class="theme-toggle-btn" id="theme-toggle">Karanlık ve Aydınlık tema arasında geçiş yap</button>
+        <button class="theme-toggle-btn" id="theme-toggle">
+            <img src="res/sun-icon.png" alt="Güneş İkonu" class="icon" id="theme-icon">
+            Karanlık ve Aydınlık tema arasında geçiş yap
+        </button>
 
         <div class="social-media">
             <a href="https://www.youtube.com/@scropool2" target="_blank">
@@ -140,8 +150,12 @@
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const currentTheme = localStorage.getItem('theme') || 'light';
+        const themeIcon = document.getElementById('theme-icon');
 
         document.body.classList.add(currentTheme + '-theme');
+
+        // Set the initial icon based on the current theme
+        themeIcon.src = currentTheme === 'light' ? 'res/moon-icon.png' : 'res/sun-icon.png';
 
         themeToggleBtn.addEventListener('click', function () {
             const activeTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
@@ -149,6 +163,9 @@
 
             document.body.classList.remove(activeTheme + '-theme');
             document.body.classList.add(newTheme + '-theme');
+
+            // Change the icon based on the new theme
+            themeIcon.src = newTheme === 'light' ? 'res/moon-icon.png' : 'res/sun-icon.png';
 
             localStorage.setItem('theme', newTheme);
         });
