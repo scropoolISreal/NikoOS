@@ -11,35 +11,33 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Yüksekliği en üste ayarladık */
+            align-items: flex-start;
             justify-content: center;
             height: 100vh;
             transition: background-color 0.5s, color 0.5s;
         }
 
-        /* Açık tema */
         body.light-theme {
             background-color: #f4f4f4;
             color: #333;
         }
 
-        /* Karanlık tema */
         body.dark-theme {
             background-color: #333;
             color: #f4f4f4;
         }
 
         .logo {
-            width: 100px; /* NikoOS logosunun boyutunu ayarlayın */
+            width: 100px;
             height: auto;
             display: block;
-            margin: 20px auto; /* Ortada yer alması için */
+            margin: 20px auto;
         }
 
         .container {
-            display: flex; /* Flexbox kullan */
-            flex-direction: column; /* Dikey yerleşim */
-            align-items: center; /* Ortada hizala */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background-color: #fff;
             padding: 40px;
             border-radius: 10px;
@@ -47,7 +45,7 @@
             max-width: 500px;
             width: 100%;
             transition: background-color 0.5s;
-            margin: 0 auto; /* Sayfanın ortasında yer alması için */
+            margin: 0 auto;
         }
 
         body.dark-theme .container {
@@ -100,8 +98,12 @@
             color: #666;
         }
 
+        .social-media {
+            margin-top: 20px;
+        }
+
         .social-logo {
-            width: 24px; /* Sosyal medya logolarının boyutunu ayarlayın */
+            width: 24px;
             height: auto;
             vertical-align: middle;
             margin-left: 10px;
@@ -110,18 +112,23 @@
 </head>
 <body>
 
-    <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo"> <!-- NikoOS logosu burada -->
+    <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo">
     
     <div class="container">
         <p>Aşağıdan bir sürüm seçerek indirmeye başlayın:</p>
         
-        <!-- Sabit URL üzerinden indirme butonları -->
-        <a href="link-eklenecek" class="download-btn" download>NikoOS 11 24H2 (LTSC 2024)</a>
+        <a href="https://sourceforge.net/projects/niko-os/files/NikoOS%2011.iso/download" class="download-btn" download>NikoOS 11 24H2 (LTSC 2024)</a>
         <a href="link-eklenecek" class="download-btn" download>NikoOS 10 1809 (LTSC 2019)</a>
-        <a href="href="link-eklenecek" class="download-btn" download>NikoOS 10 22H2</a>
+        <a href="link-eklenecek" class="download-btn" download>NikoOS 10 22H2</a>
 
-        <!-- Tema geçiş butonu -->
         <button class="theme-toggle-btn" id="theme-toggle">Karanlık ve Aydınlık tema arasında geçiş yap</button>
+
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank"><img src="res/facebook-icon.png" alt="Facebook" class="social-logo"></a>
+            <a href="https://www.twitter.com" target="_blank"><img src="res/twitter-icon.png" alt="Twitter" class="social-logo"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="res/instagram-icon.png" alt="Instagram" class="social-logo"></a>
+            <!-- Diğer sosyal medya logolarını buraya ekleyebilirsiniz -->
+        </div>
     </div>
 
     <footer>
@@ -129,25 +136,18 @@
     </footer>
 
     <script>
-        // Tema geçişi yapacak fonksiyon
         const themeToggleBtn = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme') || 'light'; // Varsayılan tema açık
+        const currentTheme = localStorage.getItem('theme') || 'light';
 
-        // Sayfa yüklendiğinde doğru temayı uygula
         document.body.classList.add(currentTheme + '-theme');
 
         themeToggleBtn.addEventListener('click', function () {
-            // Şu anki tema
             const activeTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
-
-            // Yeni temaya geçiş
             const newTheme = activeTheme === 'light' ? 'dark' : 'light';
 
-            // Eski temayı kaldır, yeni temayı ekle
             document.body.classList.remove(activeTheme + '-theme');
             document.body.classList.add(newTheme + '-theme');
 
-            // Tercihi localStorage'a kaydet
             localStorage.setItem('theme', newTheme);
         });
     </script>
