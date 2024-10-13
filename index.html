@@ -86,6 +86,22 @@
             background-color: #45a049;
         }
 
+        .ltac-btn {
+            display: inline-block;
+            background-color: #007bff; /* Mavi arka plan */
+            color: white;
+            padding: 15px 25px;
+            margin-left: 20px; /* Butonları ayırmak için */
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .ltac-btn:hover {
+            background-color: #0056b3; /* Daha koyu mavi hover durumu */
+        }
+
         .social-media {
             margin-top: 20px;
             display: flex;
@@ -112,6 +128,7 @@
 
     <div style="display: flex; align-items: center;">
         <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo">
+        <a href="https://github.com/scropool/LTAC" class="ltac-btn" target="_blank">LTAC</a> <!-- LTAC butonu eklendi -->
         <img src="res/sun-icon.png" alt="Tema Değiştirme İkonu" class="social-logo" id="theme-toggle" title="Tema Değiştir">
     </div>
     
