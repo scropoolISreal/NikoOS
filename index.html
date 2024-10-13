@@ -29,20 +29,11 @@
             color: #f4f4f4;
         }
 
-        h1 {
-            width: 100%;
-            text-align: left; /* Metni sola hizala */
-            padding: 20px;
-            margin: 0;
-            transition: background-color 0.5s;
-        }
-        body.light-theme h1 {
-            background-color: #333;
-            color: white;
-        }
-        body.dark-theme h1 {
-            background-color: #f4f4f4;
-            color: #333;
+        .logo {
+            width: 100px; /* NikoOS logosunun boyutunu ayarlayın */
+            height: auto;
+            display: block;
+            margin: 20px auto; /* Ortada yer alması için */
         }
 
         .container {
@@ -109,41 +100,25 @@
             color: #666;
         }
 
-        .logo {
-            width: 24px; /* Logo boyutunu ayarlayın */
+        .social-logo {
+            width: 24px; /* Sosyal medya logolarının boyutunu ayarlayın */
             height: auto;
             vertical-align: middle;
             margin-left: 10px;
-        }
-
-        .main-logo {
-            width: 100px; /* NikoOS logosunun boyutunu ayarlayın */
-            height: auto;
-            display: block;
-            margin: 0 auto; /* Ortada yer alması için */
         }
     </style>
 </head>
 <body>
 
-    <img src="res/NikoOS.png" alt="NikoOS Logo" class="main-logo"> <!-- NikoOS logosu eklendi -->
+    <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo"> <!-- NikoOS logosu burada -->
     
-    <h1>NikoOS 
-        <a href="https://www.youtube.com/@scropool2" target="_blank">
-            <img src="res/youtube-logo.png" alt="YouTube" class="logo">
-        </a>
-        <a href="https://sourceforge.net" target="_blank">
-            <img src="res/sourceforge-logo.png" alt="SourceForge" class="logo">
-        </a>
-    </h1>
-
     <div class="container">
         <p>Aşağıdan bir sürüm seçerek indirmeye başlayın:</p>
         
         <!-- Sabit URL üzerinden indirme butonları -->
         <a href="link-eklenecek" class="download-btn" download>NikoOS 11 24H2 (LTSC 2024)</a>
         <a href="link-eklenecek" class="download-btn" download>NikoOS 10 1809 (LTSC 2019)</a>
-        <a href="link-eklenecek" class="download-btn" download>NikoOS 10 22H2</a>
+        <a href="href="link-eklenecek" class="download-btn" download>NikoOS 10 22H2</a>
 
         <!-- Tema geçiş butonu -->
         <button class="theme-toggle-btn" id="theme-toggle">Karanlık ve Aydınlık tema arasında geçiş yap</button>
