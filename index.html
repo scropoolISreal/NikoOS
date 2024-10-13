@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fiatcoupe16vturbo</title>
+    <title>NikoOS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Yüksekliği en üste ayarladık */
             justify-content: center;
             height: 100vh;
             transition: background-color 0.5s, color 0.5s;
@@ -31,7 +31,7 @@
 
         h1 {
             width: 100%;
-            text-align: center;
+            text-align: left; /* Metni sola hizala */
             padding: 20px;
             margin: 0;
             transition: background-color 0.5s;
@@ -106,7 +106,7 @@
             color: #666;
         }
 
-        .youtube-logo {
+        .logo {
             width: 24px; /* Logo boyutunu ayarlayın */
             height: auto;
             vertical-align: middle;
@@ -116,22 +116,25 @@
 </head>
 <body>
 
-    <h1>fiatcoupe16vturbo - scr2 
+    <h1>DENEME 123.NL 
         <a href="https://www.youtube.com/@scropool2" target="_blank">
-            <img src="res/youtube-logo.png" alt="YouTube Kanalım" class="youtube-logo">
+            <img src="res/youtube-logo.png" alt="YouTube" class="logo">
+        </a>
+        <a href="https://sourceforge.net" target="_blank">
+            <img src="res/sourceforge-logo.png" alt="SourceForge" class="logo">
         </a>
     </h1>
 
     <div class="container">
         <p>Click the buttons below to download files:</p>
-
-        <!-- İndirme bağlantıları -->
-        <a href="file1.zip" class="download-btn" download>Download File 1</a>
-        <a href="file2.pdf" class="download-btn" download>Download File 2</a>
-        <a href="file3.mp3" class="download-btn" download>Download File 3</a>
+        
+        <!-- Sabit URL üzerinden indirme butonları -->
+        <a href="link-eklenecek" class="download-btn" download>NikoOS 11 24H2 (LTSC 2024)</a>
+        <a href="link-eklenecek" class="download-btn" download>NikoOS 10 1809 (LTSC 2019)</a>
+        <a href="link-eklenecek" class="download-btn" download>NikoOS 10 22H2</a>
 
         <!-- Tema geçiş butonu -->
-        <button class="theme-toggle-btn" id="theme-toggle">Toggle Dark/Light Theme</button>
+        <button class="theme-toggle-btn" id="theme-toggle">Karanlık ve Aydınlık tema arasında geçiş yap</button>
     </div>
 
     <footer>
