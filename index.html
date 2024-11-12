@@ -18,205 +18,302 @@
     <meta name="twitter:site" content="@your_twitter_handle" />
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
         :root {
             --primary-color: #4CAF50;
             --secondary-color: #007bff;
             --transition-speed: 0.3s;
+            --gradient-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
+            transition: background var(--transition-speed), color var(--transition-speed);
         }
 
         body.light-theme {
-            background-color: #f8f9fa;
+            background: var(--gradient-light);
             color: #333;
         }
 
         body.dark-theme {
-            background-color: #1a1a1a;
+            background: var(--gradient-dark);
             color: #f4f4f4;
         }
 
         .header {
             position: fixed;
             top: 0;
-            right: 0;
+            width: 100%;
             padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
         .theme-toggle {
             background: none;
-            border: none;
+            border: 2px solid currentColor;
             cursor: pointer;
             padding: 8px;
             border-radius: 50%;
-            transition: transform var(--transition-speed), background-color var(--transition-speed);
+            transition: all var(--transition-speed);
         }
 
         .theme-toggle:hover {
-            transform: rotate(30deg);
+            transform: rotate(30deg) scale(1.1);
             background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .theme-icon {
-            width: 24px;
-            height: 24px;
-            transition: transform var(--transition-speed);
         }
 
         .container {
-            max-width: 800px;
-            margin: 80px auto 20px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
+            max-width: 1000px;
+            margin: 100px auto 20px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
+            border-radius: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed);
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             display: block;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
             border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             transition: transform var(--transition-speed);
         }
 
         .logo:hover {
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .version-container {
+            display: grid;
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .download-btn {
-            display: block;
-            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-color), #45a049);
             color: white;
-            padding: 15px 25px;
-            margin: 15px auto;
+            padding: 20px 30px;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 15px;
             font-size: 18px;
-            transition: transform var(--transition-speed), background-color var(--transition-speed);
-            text-align: center;
-            max-width: 300px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
         }
 
         .download-btn:hover {
-            transform: translateY(-2px);
-            background-color: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
         }
 
         .sponsor-section {
-            margin: 30px auto;
-            padding: 20px;
-            border: 2px solid var(--secondary-color);
-            border-radius: 15px;
+            margin: 40px auto;
+            padding: 30px;
+            border: none;
+            border-radius: 20px;
             text-align: center;
-            max-width: 500px;
-            background-color: rgba(0, 123, 255, 0.1);
+            max-width: 600px;
+            background: rgba(0, 123, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all var(--transition-speed);
+        }
+
+        .sponsor-section:hover {
+            transform: scale(1.02);
         }
 
         .sponsor {
-            display: inline-block;
-            background-color: var(--secondary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--secondary-color), #0056b3);
             color: white;
-            padding: 12px 24px;
+            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 16px;
-            transition: transform var(--transition-speed), background-color var(--transition-speed);
+            font-weight: 500;
+            transition: all var(--transition-speed);
         }
 
         .sponsor:hover {
             transform: translateY(-2px);
-            background-color: #0056b3;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
         }
 
         .social-media {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .social-logo {
-            width: 32px;
-            height: 32px;
-            transition: transform var(--transition-speed);
+            width: 40px;
+            height: 40px;
+            transition: all var(--transition-speed);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
         }
 
         .social-logo:hover {
-            transform: scale(1.2);
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all var(--transition-speed);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         footer {
             margin-top: auto;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
             font-size: 14px;
-            color: #666;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .container {
-                margin: 60px 10px 20px;
-                padding: 15px;
+                margin: 80px 15px 20px;
+                padding: 20px;
             }
 
             .logo {
-                width: 100px;
-                height: 100px;
+                width: 120px;
+                height: 120px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body class="light-theme">
     <header class="header">
+        <div></div>
         <button class="theme-toggle" id="theme-toggle" title="Tema Değiştir">
-            <img src="res/moon.png" alt="Tema İkonu" class="theme-icon" id="theme-icon">
+            <img src="res/moon.png" alt="Tema İkonu" class="theme-icon" id="theme-icon" style="width: 24px; height: 24px;">
         </button>
     </header>
 
     <div class="container">
         <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo">
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>💨 Optimize Edilmiş</h3>
+                <p>Maksimum performans için özel olarak optimize edilmiş Windows deneyimi.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🛡️ Güvenli</h3>
+                <p>Gereksiz servislerden arındırılmış, güvenli bir işletim sistemi.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ Hızlı</h3>
+                <p>Düşük sistem kaynak kullanımı ile daha hızlı çalışma deneyimi.</p>
+            </div>
+        </div>
 
-        <a href="link-eklenecek" class="download-btn" download>NikoOS 11 24H2 (LTSC 2024)</a>
-        <a href="link-eklenecek" class="download-btn" download>NikoOS 10 1809 (LTSC 2019)</a>
-        <a href="link-eklenecek" class="download-btn" download>NikoOS 10 22H2</a>
+        <div class="version-container">
+            <a href="link-eklenecek" class="download-btn" download>
+                📥 NikoOS 11 24H2 (LTSC 2024)
+            </a>
+            <a href="link-eklenecek" class="download-btn" download>
+                📥 NikoOS 10 1809 (LTSC 2019)
+            </a>
+            <a href="link-eklenecek" class="download-btn" download>
+                📥 NikoOS 10 22H2
+            </a>
+        </div>
 
         <div class="social-media">
-            <a href="https://www.youtube.com/@scropool2" target="_blank">
+            <a href="https://www.youtube.com/@scropool2" target="_blank" title="YouTube Kanalımız">
                 <img src="res/youtube-logo.png" alt="YouTube" class="social-logo">
             </a>
-            <a href="https://sourceforge.net/projects/niko-os" target="_blank">
+            <a href="https://sourceforge.net/projects/niko-os" target="_blank" title="SourceForge Sayfamız">
                 <img src="res/sourceforge-logo.png" alt="SourceForge" class="social-logo">
             </a>
         </div>
     </div>
 
     <div class="sponsor-section">
-        <h2>Bu projenin sponsoru:</h2>
-        <a href="https://github.com/scropoolISreal" class="sponsor" target="_blank">@scropoolISreal</a>
+        <h2>Bu projenin sponsoru</h2>
+        <p style="margin: 10px 0 20px;">Projeyi destekleyen sponsorumuz:</p>
+        <a href="https://github.com/scropoolISreal" class="sponsor" target="_blank">
+            👨‍💻 @scropoolISreal
+        </a>
     </div>
 
     <footer>
-        © 2024 NikoOS Team
+        <p>© 2024 NikoOS Team | Tüm hakları saklıdır.</p>
     </footer>
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         
-        // Kaydedilen temayı yükle
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.body.className = savedTheme + '-theme';
         updateThemeIcon();
@@ -238,6 +335,26 @@
             localStorage.setItem('theme', currentTheme);
             
             updateThemeIcon();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation for download buttons
+        document.querySelectorAll('.download-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.opacity = '0.7';
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                }, 200);
+            });
         });
     </script>
 </body>
