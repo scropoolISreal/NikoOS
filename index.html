@@ -276,6 +276,144 @@
             </div>
         </div>
 
+<!-- Features bölümünden sonra ve version-container'dan önce eklenecek -->
+<div class="comparison-section">
+    <div class="comparison-card">
+        <h3>📊 RAM Kullanımı Karşılaştırması</h3>
+        <div class="comparison-content">
+            <div class="comparison-item">
+                <img src="/api/placeholder/300/200" alt="NikoOS RAM Kullanımı" class="comparison-image">
+                <div class="comparison-details">
+                    <span class="system-name">NikoOS</span>
+                    <span class="usage-value">~800MB</span>
+                </div>
+            </div>
+            <div class="comparison-divider">vs</div>
+            <div class="comparison-item">
+                <img src="/api/placeholder/300/200" alt="Normal Windows RAM Kullanımı" class="comparison-image">
+                <div class="comparison-details">
+                    <span class="system-name">Normal Windows</span>
+                    <span class="usage-value">~2.5GB</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="comparison-card">
+        <h3>⚙️ Çalışan Servisler</h3>
+        <div class="comparison-content">
+            <div class="comparison-item">
+                <img src="/api/placeholder/300/200" alt="NikoOS Servisler" class="comparison-image">
+                <div class="comparison-details">
+                    <span class="system-name">NikoOS</span>
+                    <span class="usage-value">25 Servis</span>
+                </div>
+            </div>
+            <div class="comparison-divider">vs</div>
+            <div class="comparison-item">
+                <img src="/api/placeholder/300/200" alt="Normal Windows Servisler" class="comparison-image">
+                <div class="comparison-details">
+                    <span class="system-name">Normal Windows</span>
+                    <span class="usage-value">85+ Servis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Comparison Section Styles */
+.comparison-section {
+    display: grid;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.comparison-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 25px;
+    transition: all var(--transition-speed);
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.comparison-card h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.comparison-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.comparison-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.comparison-image {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform var(--transition-speed);
+}
+
+.comparison-image:hover {
+    transform: scale(1.05);
+}
+
+.comparison-divider {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.comparison-details {
+    text-align: center;
+}
+
+.system-name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.usage-value {
+    display: block;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .comparison-content {
+        flex-direction: column;
+    }
+    
+    .comparison-divider {
+        transform: rotate(90deg);
+    }
+    
+    .comparison-image {
+        max-width: 250px;
+        height: 150px;
+    }
+}
+</style>
+        
         <div class="version-container">
             <a href="link-eklenecek" class="download-btn" download>
                 📥 NikoOS 11 24H2 (LTSC 2024)
