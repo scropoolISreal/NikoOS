@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NikoOS</title>
-
-    <!-- Open Graph meta tags -->
     <meta property="og:title" content="NikoOS - Hızlı ve Arındırılmış İso" />
     <meta property="og:description" content="NikoOS, hız ve güvenlik için optimize edilmiş bir modlanmış isodur." />
     <meta property="og:image" content="res/preview.jpg" />
     <meta property="og:url" content="https://fiatcoupe16vturbo.github.io/NikoOS-HTML/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="NikoOS" />
-
-    <!-- Twitter Card meta tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="NikoOS - Hızlı ve Arındırılmış İso" />
     <meta name="twitter:description" content="NikoOS, hız ve güvenlik için optimize edilmiş bir modlanmış isodur." />
@@ -22,135 +18,177 @@
     <meta name="twitter:site" content="@your_twitter_handle" />
 
     <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #007bff;
+            --transition-speed: 0.3s;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Merkezde hizala */
-            justify-content: center;
-            height: 100vh;
-            transition: background-color 0.5s, color 0.5s;
+            min-height: 100vh;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         body.light-theme {
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #333;
         }
 
         body.dark-theme {
-            background-color: #333;
+            background-color: #1a1a1a;
             color: #f4f4f4;
         }
 
-        .logo {
-            width: 100px;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 50%; /* Logoyu yuvarlak yapar */
-            overflow: hidden;   /* Logonun taşan kısımlarını gizler */
+        .header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform var(--transition-speed);
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
-            transition: background-color 0.5s;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 80px auto 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        body.dark-theme .container {
-            background-color: #444;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        .logo {
+            width: 120px;
+            height: 120px;
+            display: block;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .download-btn {
-            display: inline-block;
-            background-color: #4CAF50;
+            display: block;
+            background-color: var(--primary-color);
             color: white;
             padding: 15px 25px;
-            margin: 15px 10px;
+            margin: 15px auto;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 10px;
             font-size: 18px;
-            transition: background-color 0.3s ease;
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
+            text-align: center;
+            max-width: 300px;
         }
 
         .download-btn:hover {
+            transform: translateY(-2px);
             background-color: #45a049;
         }
 
         .sponsor-section {
-            margin-top: 20px;
+            margin: 30px auto;
             padding: 20px;
-            border: 2px solid #007bff;
-            border-radius: 10px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
             text-align: center;
             max-width: 500px;
-        }
-
-        .sponsor-section h2 {
-            margin-bottom: 10px;
-            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
         }
 
         .sponsor {
             display: inline-block;
-            background-color: #007bff; /* Mavi arka plan */
+            background-color: var(--secondary-color);
             color: white;
-            padding: 15px 25px;
-            margin-left: 10px;
+            padding: 12px 24px;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
         }
 
         .sponsor:hover {
-            background-color: #0056b3; /* Daha koyu mavi hover durumu */
+            transform: translateY(-2px);
+            background-color: #0056b3;
         }
 
         .social-media {
-            margin-top: 20px;
             display: flex;
-            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
         }
 
         .social-logo {
-            width: 24px;
-            height: auto;
-            vertical-align: middle;
-            margin-left: 10px;
-            cursor: pointer; /* İşaretçi değiştir */
+            width: 32px;
+            height: 32px;
+            transition: transform var(--transition-speed);
+        }
+
+        .social-logo:hover {
+            transform: scale(1.2);
         }
 
         footer {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 12px;
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
             color: #666;
-            width: 100%; /* Genişlik ayarlanır */
-            text-align: left; /* Yazı sola hizalanır */
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 60px 10px 20px;
+                padding: 15px;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
 </head>
-<body>
-
-    <div style="display: flex; align-items: center;">
-        <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo">
-        <img src="res/sun.png" alt="Tema Değiştirme İkonu" class="social-logo" id="theme-toggle" title="Tema Değiştir">
-    </div>
+<body class="light-theme">
+    <header class="header">
+        <button class="theme-toggle" id="theme-toggle" title="Tema Değiştir">
+            <img src="res/moon.png" alt="Tema İkonu" class="theme-icon" id="theme-icon">
+        </button>
+    </header>
 
     <div class="container">
+        <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo">
+
         <a href="link-eklenecek" class="download-btn" download>NikoOS 11 24H2 (LTSC 2024)</a>
         <a href="link-eklenecek" class="download-btn" download>NikoOS 10 1809 (LTSC 2019)</a>
         <a href="link-eklenecek" class="download-btn" download>NikoOS 10 22H2</a>
@@ -175,31 +213,32 @@
     </footer>
 
     <script>
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        document.body.classList.add(currentTheme + '-theme');
-
         const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        // Kaydedilen temayı yükle
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.className = savedTheme + '-theme';
+        updateThemeIcon();
 
-        // Tema ikonunu güncelleme fonksiyonu
         function updateThemeIcon() {
-            if (document.body.classList.contains('dark-theme')) {
-                themeToggle.src = 'res/sun.png'; // Güneş ikonu (aydınlık tema)
-            } else {
-                themeToggle.src = 'res/moon.png'; // Ay ikonu (karanlık tema)
-            }
+            const isDark = document.body.classList.contains('dark-theme');
+            themeIcon.src = isDark ? 'res/sun.png' : 'res/moon.png';
+            themeIcon.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                themeIcon.style.transform = 'rotate(0deg)';
+            }, 300);
         }
 
-        // Tema değiştirme olayları
-        themeToggle.addEventListener('click', function () {
+        themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-theme');
             document.body.classList.toggle('light-theme');
-            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+            
+            const currentTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+            
             updateThemeIcon();
         });
-
-        // Sayfa yüklendiğinde ikonun güncellenmesi
-        updateThemeIcon();
     </script>
-
 </body>
 </html>
