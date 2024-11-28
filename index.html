@@ -251,14 +251,19 @@
     </style>
 </head>
 <body class="light-theme">
-    <header class="header">
-        <div></div>
-        <button class="theme-toggle" id="theme-toggle" title="Tema Değiştir">
-            <img src="res/moon.png" alt="Tema İkonu" class="theme-icon" id="theme-icon" style="width: 24px; height: 24px;">
-        </button>
-    </header>
+<header class="header">
+    <nav>
+        <ul style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+            <li><a href="#anasayfa" style="text-decoration: none; color: inherit;">Ana Sayfa</a></li>
+            <li><a href="#hakkimizda" style="text-decoration: none; color: inherit;">Hakkımızda</a></li>
+        </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" title="Tema Değiştir">
+        <img src="res/moon.png" alt="Tema İkonu" class="theme-icon" id="theme-icon" style="width: 24px; height: 24px;">
+    </button>
+</header>
 
-    <div class="container">
+    <div id="anasayfa" class="container">
         <img src="res/NikoOS.png" alt="NikoOS Logo" class="logo">
         
         <div class="features">
@@ -425,6 +430,10 @@
                 📥 NikoOS 10 22H2
             </a>
         </div>
+        <div id="hakkimizda" class="container">
+    <h2>Hakkımızda</h2>
+    <p>NikoOS, modern sistemlerde yüksek performans ve güvenliği bir araya getiren hafif bir işletim sistemi çözümüdür. Amacımız, kullanıcıların gereksiz özelliklerle dolu işletim sistemleri yerine, özelleştirilebilir ve optimize edilmiş bir deneyim yaşamasını sağlamaktır.</p>
+</div>
 
         <div class="social-media">
             <a href="https://www.youtube.com/@scropool2" target="_blank" title="YouTube Kanalımız">
