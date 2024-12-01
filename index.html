@@ -246,6 +246,17 @@
                 height: 120px;
             }
 
+            .test-warning {
+                background: rgba(255, 0, 0, 0.1);
+                color: #d9534f;
+                font-weight: bold;
+                padding: 10px 15px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+
             .features {
                 grid-template-columns: 1fr;
             }
@@ -283,14 +294,13 @@
             </div>
         </div>
 
-<p>
-    <span style="color: red; font-weight: bold; margin-right: 5px;">❗</span>
-    Bu testler, 2 GB RAM’e sahip aynı özelliklerdeki sanal makinelerde gerçekleştirilmiştir ve Windows 10 22H2 Temel alınmıştır.
-</p>
-        
 <div class="comparison-section">
+    <p class="test-warning">
+      <span style="color: red; font-weight: bold; margin-right: 5px;">❗</span>
+      Bu testler, 2 GB RAM’e sahip aynı özelliklerdeki sanal makinelerde gerçekleştirilmiştir ve Windows 10 22H2 Temel alınmıştır.
+    </p>
     <div class="comparison-card">
-        <h3>📊 RAM Kullanımı</h3>
+        <h3 class="comparison-title">📊 RAM Kullanımı</h3>
         <div class="comparison-content">
             <div class="comparison-item">
                 <img src="res/nikoosram.png" alt="NikoOS RAM Kullanımı" class="comparison-image">
@@ -309,6 +319,7 @@
             </div>
         </div>
     </div>
+</div>
     
     <div class="comparison-card">
         <h3>⚙️ Çalışan Servisler</h3>
