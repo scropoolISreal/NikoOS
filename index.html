@@ -27,7 +27,9 @@
             --secondary-color: #007bff;
             --transition-speed: 0.3s;
             --gradient-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --bg-light: url('res/light_bg.jpg');
             --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            --bg-dark: url('res/dark_bg.jpg');
         }
 
         * {
@@ -43,16 +45,24 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            transition: background var(--transition-speed), color var(--transition-speed);
+            transition: background-image var(--transition-speed), backdrop-filter var(--transition-speed);
         }
 
         body.light-theme {
-            background: var(--gradient-light);
+            background-image: var(--bg-light);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
             color: #333;
         }
 
         body.dark-theme {
-            background: var(--gradient-dark);
+            background-image: var(--bg-dark);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
             color: #f4f4f4;
         }
 
